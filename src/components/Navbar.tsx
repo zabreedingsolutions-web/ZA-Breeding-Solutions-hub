@@ -31,9 +31,18 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-20">
-        <a href="#" className="text-2xl font-display font-bold text-primary-foreground tracking-tight">
-          Za Breeding <span className="text-secondary">Solutions</span>
+        {/* LOGO SECTION START */}
+        <a href="#" className="flex items-center gap-3 text-2xl font-display font-bold text-primary-foreground tracking-tight">
+          <img 
+            src="/za-logo.png" 
+            alt="Za Breeding Solutions Logo" 
+            className="h-10 w-auto object-contain" 
+          />
+          <span className="hidden sm:inline">
+            Za Breeding <span className="text-secondary">Solutions</span>
+          </span>
         </a>
+        {/* LOGO SECTION END */}
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-10">
