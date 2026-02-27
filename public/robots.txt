@@ -1,3 +1,4 @@
+# Allow all major search engine bots
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +11,9 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# Standard rule for all other bots
 User-agent: *
 Allow: /
+
+# Link to your official sitemap
+Sitemap: https://zabreeding.com/sitemap.xml
