@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/za-logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -31,10 +32,9 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-20">
-        {/* LOGO SECTION START */}
         <a href="#" className="flex items-center gap-3 text-2xl font-display font-bold text-primary-foreground tracking-tight">
           <img 
-            src="/za-logo.png" 
+            src={logo} 
             alt="Za Breeding Solutions Logo" 
             className="h-10 w-auto object-contain" 
           />
@@ -42,7 +42,6 @@ const Navbar = () => {
             Za Breeding <span className="text-secondary">Solutions</span>
           </span>
         </a>
-        {/* LOGO SECTION END */}
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-10">
