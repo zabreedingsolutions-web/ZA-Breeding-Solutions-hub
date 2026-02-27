@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import About from "@/components/About"; 
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import Gallery from "@/components/Gallery";
@@ -11,9 +12,10 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
+      <About /> {/* Place it right after Hero for indexing clarity */}
       <Services />
       <WhyUs />
-      <Gallery /> {/* Added the Gallery section here */}
+      <Gallery />
       <CTA />
       <Footer />
     </div>
