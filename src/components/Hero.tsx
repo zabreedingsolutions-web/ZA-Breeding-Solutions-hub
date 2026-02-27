@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroVideo from "@/assets/hero.mp4"; // Correctly importing your mp4
 import { useRef } from "react";
 
 const Hero = () => {
@@ -13,15 +13,25 @@ const Hero = () => {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Parallax background */}
-      <motion.div
-        className="absolute inset-0 bg-cover bg-center scale-110"
-        style={{ backgroundImage: `url(${heroBg})`, y: bgY }}
-      />
-      {/* Overlay */}
-      <div className="absolute inset-0" style={{ background: "var(--hero-overlay)" }} />
-      {/* Grain texture */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
+      {/* Background Video Implementation */}
+      <motion.div style={{ y: bgY }} className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover scale-110"
+        >
+          <source src={heroVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </motion.div>
+
+      {/* Hero Overlay - Darkens video for text readability */}
+      <div className="absolute inset-0 z-[1] bg-black/40" style={{ background: "var(--hero-overlay)" }} />
+      
+      {/* Grain texture for professional feel */}
+      <div className="absolute inset-0 z-[2] opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
 
       <motion.div style={{ y: textY, opacity }} className="relative z-10 container text-center py-32">
         <motion.div
@@ -89,12 +99,12 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Animated Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
         <span className="text-primary-foreground/40 text-xs uppercase tracking-[0.2em]">Scroll</span>
         <motion.div
